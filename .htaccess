@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*)
+RewriteRule ^.*$ https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+#Gzip
+<ifmodule mod_deflate.c>
+<ifmodule mod_mime.c>  
+Addtype font/opentype .otf
+Addtype font/eot .eot
+Addtype font/truetype .ttf
+</ifmodule>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/javascript text/text font/opentype font/truetype font/eot
+</ifmodule>
+#End Gzip
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
