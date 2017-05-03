@@ -1,5 +1,7 @@
 ### JCMS
 
+##### This instructions are for a friend. You should know what your're doing really!
+
 Install XAMPP from https://www.apachefriends.org/
 
 Check if it's working at http://localhost
